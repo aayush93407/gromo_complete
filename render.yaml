@@ -1,0 +1,11 @@
+# render.yaml
+services:
+  - type: web
+    name: flask-app
+    env: python
+    plan: free
+    buildCommand: |
+      apt-get update && apt-get install -y ffmpeg
+      pip install -r requirements.txt
+      python -m spacy download en_core_web_sm
+    startCommand: gunicorn app:app
