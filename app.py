@@ -119,7 +119,9 @@ from modules.prediction import handle_upload
 @app.route("/predict-result", methods=["GET", "POST"])
 def predict_result():
     return handle_upload()
+    
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))  # Render sets PORT env var
+    app.run(host='0.0.0.0', port=port, debug=True)
 
 
-if __name__ == '__main__':
-    app.run()
