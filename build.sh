@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
-# Exit on error
 set -o errexit
 
 # Install Python dependencies
 pip install -r requirements.txt
 
-# Install FFmpeg
-apt-get update && apt-get install -y ffmpeg
+# Download precompiled ffmpeg binary
+mkdir -p ffmpeg
+curl -L https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-i686-static.tar.xz -o ffmpeg.tar.xz
+tar -xf ffmpeg.tar.xz --strip-components=1 -C ffmpeg
+chmod +x ffmpeg/ffmpeg
+
+# Add ffmpeg to PATH so it works in subprocess or os.system
+export PATH="$PATH:$PWD/ffmpeg"
