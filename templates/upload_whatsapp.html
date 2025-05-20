@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WhatsApp Chat Analyzer</title>
+  <style>
+    body {
+      background-color: #e6f0ff; /* light blue background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #004d99; /* dark blue */
+    }
+
+    input[type="text"],
+    input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #28a745; /* green */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <form method="post" action="/predict-result" enctype="multipart/form-data">
+      <label>Seller Name:</label><br>
+      <input type="text" name="seller_name" required><br>
+
+      <label>Mistral API Key:</label><br>
+      <input type="text" name="api_key_mistral" required><br>
+
+      <label>Upload WhatsApp Chat (.txt):</label><br>
+      <input type="file" name="chat" accept=".txt" required><br>
+
+      <button type="submit">Analyze</button>
+    </form>
+  </div>
+</body>
+</html>

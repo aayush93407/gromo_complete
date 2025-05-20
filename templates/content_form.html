@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gromo Message Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f8ff;
+            margin: 0;
+            padding: 20px 0;
+            /* Added padding to body */
+        }
+
+        .container {
+            background-color: white;
+            max-width: 750px;
+            margin: 40px auto;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 128, 0, 0.1);
+            border-top: 6px solid #00a86b;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0066cc;
+            margin-top: 0;
+            /* Added */
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            /* Style for Output heading */
+            text-align: left;
+            color: #0066cc;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        button {
+            /* Combined input and button, type specific for text */
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            /* Uniform margin */
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"] {
+            /* Specific for text input background */
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"]:focus {
+            border-color: #00a86b;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 168, 107, 0.3);
+        }
+
+        button {
+            background-color: #00a86b;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #008c5e;
+        }
+
+        pre {
+            background-color: #e6f7ff;
+            padding: 15px;
+            border-left: 4px solid #00a86b;
+            white-space: pre-wrap;
+            /* Changed from pre */
+            word-wrap: break-word;
+            /* Added for long words */
+            border-radius: 6px;
+            font-size: 15px;
+            color: #003366;
+            overflow-x: auto;
+            /* Added for horizontal scroll if needed */
+        }
+
+        pre a {
+            /* Style for links inside pre if any, though not in this example */
+            color: #0066cc;
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            /* Lighter gray */
+            margin-top: 40px;
+            /* Increased margin */
+            padding-top: 20px;
+            /* Added padding */
+            border-top: 1px solid #eee;
+            /* Subtle separator */
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+
+            /* Broader breakpoint */
+            .container {
+                margin: 20px 15px;
+                padding: 25px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px 0;
+            }
+
+            /* Adjust body padding */
+            .container {
+                margin: 15px 10px;
+                /* Adjust container margin */
+                padding: 20px 15px;
+                border-radius: 8px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            input[type="text"],
+            button {
+                /* Ensure button also resizes */
+                font-size: 14px;
+                padding: 10px;
+                margin-bottom: 12px;
+                /* Adjust margin */
+            }
+
+            pre {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>📨 Gromo Message Generator</h2>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Customer Name" required />
+            <input type="text" name="profession" placeholder="Customer Profession" required />
+            <input type="text" name="interest" placeholder="Customer Interest (optional)" />
+            <input type="text" name="service" placeholder="Service to Pitch (e.g., Loan, Credit Card)" required />
+            <input type="text" name="language" placeholder="Preferred Language (e.g., Hindi, English, etc.)" required />
+            <input type="text" name="gp_name" placeholder="Your Name (Gromo Partner)" required />
+            <button type="submit">✨ Generate Personalized Message</button>
+        </form>
+
+        {% if message %}
+        <h3 style="color:#0066cc; text-align:left; margin-top:30px;">🎯 Output:</h3>
+        <pre>{{ message | safe }}</pre>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        © 2025 Gromo Message Tool
+    </div>
+</body>
+
+</html>

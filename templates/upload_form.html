@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Phone Recording</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f8ff;
+            /* AliceBlue */
+            margin: 0;
+            padding: 20px 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 750px;
+            margin: 40px auto;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 128, 0, 0.1);
+            /* Greenish shadow */
+            border-top: 6px solid #00a86b;
+            /* GroMo Green */
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-align: center;
+            color: #0066cc;
+            /* Dark Blue */
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #0052a3;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        /* Adjusted h3 for content sections */
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #00a86b;
+            /* GroMo Green */
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 168, 107, 0.3);
+        }
+
+        input[type="file"] {
+            padding: 10px;
+        }
+
+        input[type="file"]::file-selector-button {
+            background-color: #00a86b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background-color: #008c5e;
+        }
+
+        button,
+        input[type="submit"] {
+            background-color: #00a86b;
+            /* GroMo Green */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            /* Full width for form buttons */
+            min-width: 150px;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        button:hover,
+        input[type="submit"]:hover {
+            background-color: #008c5e;
+            /* Darker Gromo Green */
+        }
+
+        pre {
+            background-color: #e6f7ff;
+            /* Light Blue */
+            padding: 15px;
+            border-left: 4px solid #00a86b;
+            /* Gromo Green */
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border-radius: 6px;
+            font-size: 15px;
+            color: #003366;
+            /* Darker Blue text */
+            overflow-x: auto;
+        }
+
+        a {
+            color: #00a86b;
+            /* Gromo Green */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #008c5e;
+            /* Darker Gromo Green */
+        }
+
+        .button-link {
+            display: inline-block;
+            background-color: #00a86b;
+            color: white !important;
+            /* Ensure white text */
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            min-width: 150px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        .button-link:hover {
+            background-color: #008c5e;
+            text-decoration: none;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 15px auto;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px 15px;
+                padding: 25px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px 0;
+            }
+
+            .container {
+                margin: 15px 10px;
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            input[type="text"],
+            input[type="file"],
+            textarea,
+            select,
+            button,
+            input[type="submit"],
+            .button-link {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            input[type="file"]::file-selector-button {
+                padding: 8px 12px;
+            }
+
+            pre {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>🎙️ Upload Phone Call Recording</h2>
+        <form method="post" enctype="multipart/form-data" action="/upload-phone">
+            <label for="audioFile">Select Audio File:</label>
+            <input type="file" id="audioFile" name="audio" accept="audio/*" required />
+            <button type="submit">Upload & Analyze Recording</button>
+        </form>
+    </div>
+    <div class="footer">
+        © 2025 Gromo Call Analyzer
+    </div>
+</body>
+
+</html>
