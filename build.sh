@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
-apt-get update && apt-get install -y ffmpeg
+# Exit on error
+set -o errexit
+
+# Install Python dependencies
 pip install -r requirements.txt
+
+# Install FFmpeg
+apt-get update && apt-get install -y ffmpeg
