@@ -3,7 +3,7 @@ Flask
 Flask-Cors
 fastapi
 uvicorn
-
+spacy
 # Machine Learning & Deep Learning
 torch
 torchvision
