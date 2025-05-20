@@ -1,10 +1,9 @@
-# Web and API frameworks
+
 Flask
 Flask-Cors
 fastapi
 uvicorn
 spacy
-# Machine Learning & Deep Learning
 torch
 torchvision
 scikit-learn
@@ -14,7 +13,6 @@ transformers
 sentence-transformers
 catboost
 
-# Facial and Gesture Recognition
 deepface
 facenet-pytorch
 mtcnn
@@ -23,10 +21,8 @@ opencv-python
 opencv-contrib-python
 pygame
 
-# LLM / Mistral
 mistralai
 
-# Image & PDF Processing
 pillow
 pdf2image
 PyMuPDF
@@ -34,7 +30,6 @@ fpdf
 pytesseract
 pdfplumber
 
-# Data Handling & Utils
 numpy
 pandas
 matplotlib
@@ -44,10 +39,8 @@ requests
 tqdm
 python-dotenv
 
-# QR Code, Email, Misc
 qrcode
 PyYAML
 email-validator
 
-# Deployment
 gunicorn
