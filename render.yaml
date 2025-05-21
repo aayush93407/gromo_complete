@@ -3,7 +3,7 @@ services:
     name: ai-agent-app
     env: python
     buildCommand: "bash utils/build.sh"
-    startCommand: "python app.py"
+    startCommand: "gunicorn app:app"
     pythonVersion: 3.10
     region: oregon
     envVars:
